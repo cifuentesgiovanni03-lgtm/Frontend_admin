@@ -1,0 +1,170 @@
+/* ===== Responsive: Tablet (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .actions-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .estado-resumen {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ===== Responsive: Mobile (< 768px) ===== */
+@media (max-width: 768px) {
+  /* ── Layout overrides ── */
+  .main-content,
+  .page-content {
+    margin-left: 0 !important;
+    padding: 20px 16px !important;
+  }
+
+  .layout,
+  .app-layout {
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  .page-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.4rem;
+  }
+
+  /* ── Grids to single column ── */
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  .form-grid,
+  .usuarios-form,
+  .roles-form,
+  .permisos-form,
+  .bancos-form,
+  .transferencia-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .summary-grid,
+  .estado-resumen {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Tables ── */
+  .tabla-wrapper,
+  .table-card,
+  .tabla-scroll {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-card th,
+  .table-card td,
+  .tabla th,
+  .tabla td {
+    white-space: nowrap;
+    padding: 10px 12px;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary,
+  .primary-btn {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  .actions {
+    flex-direction: column !important;
+  }
+
+  .actions .secondary-btn,
+  .actions .danger-btn,
+  .actions .edit-btn {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* ── Modal ── */
+  .modal-card {
+    width: 100% !important;
+    margin: 16px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-actions {
+    flex-direction: column !important;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+
+  /* ── Dashboard ── */
+  .dashboard-header {
+    margin-bottom: 24px;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+  }
+
+  /* ── Cuentas ── */
+  .estado-resultado {
+    margin-top: 16px;
+  }
+
+  .estado-item {
+    padding: 12px;
+  }
+
+  .estado-item strong {
+    font-size: 1.1rem;
+  }
+
+  /* ── Form divider ── */
+  .form-divider h3 {
+    font-size: 16px;
+  }
+}
+
+/* ===== Small phones (< 480px) ===== */
+@media (max-width: 480px) {
+  .actions-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .main-content,
+  .page-content {
+    padding: 16px 12px !important;
+  }
+
+  .page-header h1 {
+    font-size: 1.2rem !important;
+  }
+
+  .card,
+  .form-card,
+  .table-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+}

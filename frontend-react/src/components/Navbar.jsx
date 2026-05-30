@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import './Navbar.css';
@@ -17,6 +18,7 @@ const menu = [
 ];
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { dark, toggle } = useTheme();
   const decodeToken = () => {
@@ -66,11 +68,20 @@ export default function Navbar() {
   });
 
   return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
-        <span className="sidebar-logo">🏦</span>
-        <span className="sidebar-title">URBANK</span>
-      </div>
+    <>
+      <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menú">
+        <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
+        <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
+        <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
+      </button>
+
+      <div className={`sidebar-overlay ${menuOpen ? 'visible' : ''}`} onClick={() => setMenuOpen(false)} />
+
+      <aside className={`sidebar ${menuOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <span className="sidebar-logo">🏦</span>
+          <span className="sidebar-title">URBANK</span>
+        </div>
 
       <nav className="sidebar-nav">
         {visibleMenu.slice(0, 4).map((item) => (
@@ -78,6 +89,7 @@ export default function Navbar() {
             key={item.path}
             to={item.path}
             className={({ isActive }) => 'sidebar-link' + (isActive ? ' active' : '')}
+            onClick={() => setMenuOpen(false)}
           >
             <span className="sidebar-icon">{item.icon}</span>
             {item.label}
@@ -88,6 +100,7 @@ export default function Navbar() {
             key={item.path}
             to={item.path}
             className={({ isActive }) => 'sidebar-link' + (isActive ? ' active' : '')}
+            onClick={() => setMenuOpen(false)}
           >
             <span className="sidebar-icon">{item.icon}</span>
             {item.label}
@@ -117,6 +130,7 @@ export default function Navbar() {
           Cerrar sesión
         </button>
       </div>
-    </aside>
+      </aside>
+    </>
   );
 }
